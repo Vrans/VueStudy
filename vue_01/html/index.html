@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue入门</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body >
+		<!-- "{{}}"  这个标识差值表达式  -->
+		
+		<div id="hi">
+			<h1>{{msg}}</h1>
+			<h1 v-text="number"></h1>
+		</div>
+		
+		<!-- 使用template模板 -->
+		<div id="template"></div>
+		
+		<!-- v-html是属于将html转义 -->
+		<div id="v_html">
+			<h1 v-html="content"></h1>
+		</div>
+		
+		<!-- v-on:click 点击事件 -->
+		<!-- v-on:可以简写成 @ -->
+		<div id="click">
+			<div @click="text_handleClick">{{click_data}}</div>
+		</div>
+	</body>
+	
+	<script>
+		new Vue({
+			el:"#hi",
+			data:{
+				msg:"xxxxx hello word xxxxx",
+				number:123,
+				}
+		})
+		new Vue({
+			el:"#template",
+			template:'<h1>template：{{msg}}</h1>',
+			data:{
+				msg:"template模板里的数据"
+			}
+		})
+		
+		new Vue({
+			el:"#v_html",
+			data:{
+				content:'<h1>v-html里面的数据</h1>',
+			}
+		})
+		
+		new Vue({
+			el:"#click",
+			data:{
+				click_data:"--改变前--",
+			},methods:{
+				text_handleClick : function(){
+					this.$data.click_data="--改变后--"
+				}
+			},
+			
+		})
+	</script>
+</html>

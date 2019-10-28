@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue_官方文档</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="v_bt">
+			<span v-bind:title="msg">
+				鼠标悬停显示信息
+			</span>
+		</div>
+		
+		<div id="v_if">
+			<h1 v-if="see">
+				可以看到我
+			</h1>
+		</div>
+		
+		<div id="reverse">
+			<li>原生msg:{{old_msg}}</h1>
+			<li>反转msg:{{new_msg}}</h1>
+		</div>
+		
+		<!-- v-bind可以省略 -->
+		<div id="v_model">
+			<div v-bind:title="title">model指令</div>
+			<input v-model="content"/>
+			<div>{{content}}</div>
+		</div>
+	</body>
+	
+	<script>
+		var vue =new Vue({
+			el:"#v_bt",
+			data:{
+				msg:"页面加载于"+new Date().toLocaleString()
+			}
+			
+		})
+		
+		var vue2=new Vue({
+			el:"#v_if",
+			data:{
+				see:true
+			}
+		})
+		
+		var vue3=new Vue({
+			el:"#reverse",
+			data:{
+				old_msg:"Hello World",
+			},computed:{
+				new_msg:function(){
+					return this.old_msg.split("").reverse().join("")
+				}
+			}
+		})
+		
+		new Vue({
+			el:"#v_model",
+			data:{
+				title:"this is hello world",
+				content:"this is content"
+			}
+		})
+		
+	</script>
+	
+</html>

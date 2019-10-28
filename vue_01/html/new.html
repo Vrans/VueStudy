@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新的</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="v_model">
+			<div :title="title">显示model数据</div>
+			<input  :title="input_title" v-model="content"/>
+			<div @click="hand_content" >{{content}}</div>
+			<h1>
+				v-bind里面的值：
+				<h1 v-text="new_text" />
+			</h1>
+			
+			
+			
+		</div>
+		
+	</body>
+	
+	<script>
+		new Vue({
+			el:"#v_model",
+			data:{
+				title:"this it model in",
+				content:"this is content in",
+				input_title:"这是一个输入框",
+				new_content:"改变后的值",
+				new_text:"text里面的值",
+				
+			},methods:{
+				hand_content :function(){
+					this.$data.content=this.$data.new_content
+				}
+			}
+		})
+	</script>
+</html>

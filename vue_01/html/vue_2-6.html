@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if,v-for,v-show</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<h1 v-if="show">你可以看到我</h1>
+			<button @click="btn_click">toggle</button>
+			
+			<ul>
+				<li v-for="(item,index) of list" :key="index">{{item}}</li>
+			</ul>
+		</div>
+		
+	</body>
+	
+	<script>
+		new Vue({
+			el:"#root",
+			data:{
+				show:true,
+				list:[1,2,3,4,5]
+			},methods:{
+				btn_click : function(){
+					this.show=!this.show
+				}
+			}
+		})
+		
+	</script>
+</html>
